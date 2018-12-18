@@ -1,5 +1,5 @@
 # reddit-pictures
-Vue.js app that gets pictures from reddit in a simplified view, somewhat akin to [redditp.com](https://redditp.com): [Source](https://github.com/ubershmekel/redditp) 
+Vue.js app that gets pictures from reddit in a simplified view, somewhat akin to [redditp.com](https://redditp.com) ([Source](https://github.com/ubershmekel/redditp))
 
 ## Project setup
 ```
