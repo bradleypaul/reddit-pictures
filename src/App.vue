@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import Picture from './components/Picture.vue';
 import PictureList from './components/PictureList';
 
 export default {
