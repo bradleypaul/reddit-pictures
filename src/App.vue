@@ -14,7 +14,6 @@ import PictureList from './components/PictureList';
 export default {
   name: 'app',
   components: {
-    Picture,
     PictureList
   }
 };
