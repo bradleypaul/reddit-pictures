@@ -38,20 +38,16 @@ export default {
     scroll: function() {
       window.onscroll = () => {
         if(this.atWindowBottom()) {
-          console.log('here');
           this.getAPI(this.pictureData.slice(-1).pop().data.id);
         }
       }
     },
     getAPI: function(lastId) {
-      
       let url = new URL(this.apiUrl);
       if(lastId) {
         url.searchParams.append('after', `t3_${lastId}`);
       }
       url.searchParams.append('count', this.getPostCount());
-      console.log(lastId);
-      console.log(url)
       fetch(url, {
         method: 'GET',
         mode: 'cors',
