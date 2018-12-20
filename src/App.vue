@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div>
-      <h1>Reddit Pictures</h1>
+    <div class="header">
+      <h1>Reddit Pictures by Paul Bradley</h1><hr />
     </div>
     <PictureList></PictureList>
   </div>
@@ -27,5 +27,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: white;
+}
+
+div.header {
+  position: fixed;
+  padding-left: 5px;
+}
+
+h1 {
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: #2c3e50;
 }
 </style>
