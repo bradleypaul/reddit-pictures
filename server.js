@@ -4,4 +4,4 @@ const port = process.env.PORT || 3002;
 
 app.use(express.static('dist'));
 
-app.listen(port,() => console.log(`Reddit Pictures listening on ${port}`);
+app.listen(port,() => console.log(`Reddit Pictures listening on ${port}`));
