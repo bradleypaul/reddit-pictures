@@ -1,21 +1,22 @@
 <template>
   <div class="PictureList">
     <div v-for="child in pictureData" :key="child.data.id">
-      <h3 v-html="child.data.title"></h3><br/>
-      <a :href="'https://www.reddit.com/' + child.data.id">
-        <img v-bind:src="child.data.url"
-        :alt="child.data.title" 
-        :id="child.data.id"
-        class="img-fluid"/>
-      </a>
+      <Picture :title="child.data.title"
+      :url="child.data.url"
+      :id="child.data.id">
+      </Picture>
     </div>
   </div>
 </template>
 
 <script>
+import Picture from './Picture';
 
 export default {
   name: 'PictureList',
+  components: {
+    Picture
+  },
   props: {
   },
   data: function (){
@@ -46,7 +47,7 @@ export default {
       
       let url = new URL(this.apiUrl);
       if(lastId) {
-        url.searchParams.append('id', `t3_${lastId}`);
+        url.searchParams.append('after', `t3_${lastId}`);
       }
       url.searchParams.append('count', this.getPostCount());
       console.log(lastId);
@@ -71,16 +72,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-h3 {
-  display: inline;
-  font-size: 25px;
-  font-weight: 500;
-  line-height: 29px;
-  font-family: Verdana, Tahoma, sans-serif;
-  padding-right: 5px;
-}
-
-
-</style>
