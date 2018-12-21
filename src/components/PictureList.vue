@@ -37,6 +37,7 @@ export default {
     },
     scroll: function() {
       window.onscroll = () => {
+        alert('scroll hit');
         if(this.atWindowBottom()) {
           this.getAPI(this.pictureData.slice(-1).pop().data.id);
         }
