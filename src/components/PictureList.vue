@@ -33,11 +33,10 @@ export default {
     },
     atWindowBottom: function () {
       let doc = document.documentElement;
-      return doc.scrollTop + window.innerHeight === doc.offsetHeight;
+      return parseInt(doc.scrollTop) + window.innerHeight + 400 >= doc.offsetHeight;
     },
     scroll: function() {
       window.onscroll = () => {
-        alert('scroll hit');
         if(this.atWindowBottom()) {
           this.getAPI(this.pictureData.slice(-1).pop().data.id);
         }
