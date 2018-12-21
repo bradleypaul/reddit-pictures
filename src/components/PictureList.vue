@@ -24,7 +24,7 @@ export default {
       pictureData: [],
       fileEndings: /\.(jpe?g|pi?ng|gif)$/,
       apiUrl: new URL(`${location.pathname || ''}.json`, 'https://www.reddit.com'),
-      count: 0
+      repeats: new Set()
     };
   },
   methods: {
@@ -33,7 +33,7 @@ export default {
     },
     atWindowBottom: function () {
       let doc = document.documentElement;
-      return parseInt(doc.scrollTop) + window.innerHeight + 400 >= doc.offsetHeight;
+      return parseInt(doc.scrollTop) + window.innerHeight + 500 >= doc.offsetHeight;
     },
     scroll: function() {
       window.onscroll = () => {
@@ -55,6 +55,10 @@ export default {
       .then(res => res.json())
       .then(data => {
         this.pictureData.push(...data.data.children.filter(item => {
+          if(this.repeats.has(item.data.id)) {
+            return false;
+          }
+          this.repeats.add(item.data.id);         
           return this.fileEndings.test(item.data.url);
         }));
       });
