@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style>
-
+@import './assets/ProductSans/styles.css';
 #app {
   font-family: 'Product Sans','Avenir', Helvetica, Arial, sans-serif;
   background-color: #2c3e50;
