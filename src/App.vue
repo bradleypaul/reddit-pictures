@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="header">
-      <h1>Reddit Pictures by Paul Bradley</h1><hr />
+      <h1>Reddit Pictures by Paul Bradley</h1>
     </div>
     <PictureList></PictureList>
   </div>
@@ -30,12 +30,24 @@ export default {
 }
 
 div.header {
-  position: fixed;
-  padding-left: 5px;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  width: 100%
+}
+@media screen  {
+  div.header{
+    background-color: rgba(169,169,169,0.7);
+  }
 }
 
-h1 {
-   -webkit-text-stroke-width: 2px;
-   -webkit-text-stroke-color: #2c3e50;
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.8em !important;
+  }
+  h3 {
+    font-size: 1.2em !important;
+  }
 }
+
 </style>
