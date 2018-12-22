@@ -12,12 +12,10 @@
 
 <script>
 import Picture from './Picture';
-import Video from './Video';
 export default {
   name: 'PictureList',
   components: {
-    Picture,
-    Video
+    Picture
   },
   props: {
   },
