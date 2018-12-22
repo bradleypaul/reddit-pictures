@@ -9,30 +9,6 @@ $ npm install
 $ npm run serve
 ```
 
-## Project setup
-```
-npm install
-```
+Then just follow Vue.js's instructions output on the terminal. :)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### [Production site here](http://pictures.paulbradley.codes)
