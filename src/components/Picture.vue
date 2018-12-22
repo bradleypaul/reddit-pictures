@@ -1,6 +1,9 @@
 <template>
   <div class="Picture">
-    <h3 v-html="title"></h3><br/>
+    <a :href="'https://www.reddit.com/' + sub">
+    <h3 v-html="`${title} (${sub})`"></h3>
+    </a>
+    <br/>
       <a :href="'https://www.reddit.com/' + id">
         <img :src="url"
         :alt="title" 
@@ -13,7 +16,7 @@
 <script>
 export default {
   name: 'Picture',
-  props: ['url', 'title', 'id'] 
+  props: ['url', 'title', 'id', 'sub'] 
 }
 </script>
 
