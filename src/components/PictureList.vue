@@ -1,5 +1,7 @@
 <template>
   <div class="PictureList">
+    <Video :url="'https://giant.gfycat.com/DelectableOpulentAquaticleech.webm'" type="video/webm">
+    </Video>
     <div v-for="child in pictureData" :key="child.data.id">
       <Picture :title="child.data.title"
       :sub="child.data.subreddit_name_prefixed"
@@ -12,10 +14,13 @@
 
 <script>
 import Picture from './Picture';
+import Video from './Video';
+
 export default {
   name: 'PictureList',
   components: {
-    Picture
+    Picture,
+    Video
   },
   props: {
   },
