@@ -4,7 +4,7 @@
     <h3 v-html="`${title} (${sub})`"></h3>
     </a>
     <br/>
-      <a :href="'https://www.reddit.com/' + id">
+      <a :href="`//www.reddit.com${permalink}`">
         <img :src="url"
         :alt="title" 
         :id="id"
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: 'Picture',
-  props: ['url', 'title', 'id', 'sub'] 
+  props: ['url', 'title', 'id', 'sub', 'permalink'] 
 }
 </script>
 
