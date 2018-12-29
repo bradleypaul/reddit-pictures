@@ -3,9 +3,10 @@
     <Video :url="'https://giant.gfycat.com/DelectableOpulentAquaticleech.webm'" type="video/webm">
     </Video>
     <div v-for="child in pictureData" :key="child.data.id">
-      <Picture :title="child.data.title"
-      :sub="child.data.subreddit_name_prefixed"
-      :url="child.data.url"
+      <Title :title="child.data.title"
+      :sub="child.data.subreddit_name_prefixed">
+      </Title>
+      <Picture :url="child.data.url"
       :id="child.data.id">
       </Picture>
     </div>
@@ -15,10 +16,13 @@
 <script>
 import Picture from './Picture';
 import Video from './Video';
+import Title from './Title';
+import checkRepeats from '../services/Repeats.js'
 
 export default {
   name: 'PictureList',
   components: {
+    Title,
     Picture,
     Video
   },
@@ -27,7 +31,8 @@ export default {
   data: function (){
     return {
       pictureData: [],
-      fileEndings: /\.(jpe?g|pi?ng|gif)$/,
+      imageFileEndings: /\.(jpe?g|pi?ng|gif)$/,
+      videoFileEndings: /\.(mp4)$/,
       apiUrl: new URL(`${location.pathname || ''}.json`, 'https://www.reddit.com'),
       repeats: new Set()
     };
@@ -60,11 +65,10 @@ export default {
       .then(res => res.json())
       .then(data => {
         this.pictureData.push(...data.data.children.filter(item => {
-          if(this.repeats.has(item.data.id)) {
-            return false;
-          }
-          this.repeats.add(item.data.id);         
-          return this.fileEndings.test(item.data.url);
+          if(checkRepeats.checkRepeats(item.data.id)) {
+            return this.imageFileEndings.test(item.data.url);
+          }        
+          return false;
         }));
       });
     }

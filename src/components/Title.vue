@@ -1,17 +1,15 @@
 <template>
-  <div class="Picture">
-      <a :href="'https://www.reddit.com/' + id">
-        <img :src="url"
-        :id="id"
-        class="img-fluid"/>
-      </a>
+  <div class="Title">
+    <a :href="'https://www.reddit.com/' + sub">
+        <h3 v-html="`${title} (${sub})`"></h3>
+    </a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Picture',
-  props: ['url', 'id'] 
+  name: 'Title',
+  props: ['title', 'sub'] 
 }
 </script>
 
@@ -22,5 +20,8 @@ h3 {
   font-weight: 500;
   line-height: 29px;
   padding-right: 5px;
+}
+div {
+    padding-bottom: 5px;
 }
 </style>

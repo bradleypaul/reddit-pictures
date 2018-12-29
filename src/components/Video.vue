@@ -1,8 +1,9 @@
 <template>
   <div class="Video">
-      <!-- <a :href="'https://www.reddit.com/' + id"> -->
-        <video controls loop  autoplay :src="url"></video>
-      <!-- </a> -->
+      <a :href="'https://www.reddit.com/' + id">
+        <video loop controls autoplay :src="url"
+        class="img-fluid"></video>
+      </a>
   </div>
 </template>
 
