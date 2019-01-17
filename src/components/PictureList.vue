@@ -2,8 +2,10 @@
   <div class="PictureList">
     <div v-for="child in pictureData" :key="child.data.id">
       <Picture :title="child.data.title"
+      :sub="child.data.subreddit_name_prefixed"
       :url="child.data.url"
-      :id="child.data.id">
+      :id="child.data.id"
+      :permalink="child.data.permalink">
       </Picture>
     </div>
   </div>
