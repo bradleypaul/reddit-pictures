@@ -33,7 +33,7 @@ export default {
     },
     atWindowBottom: function () {
       let doc = document.documentElement;
-      return parseInt(doc.scrollTop) + window.innerHeight + 500 >= doc.offsetHeight;
+      return parseInt(doc.scrollTop) + 2 * window.innerHeight >= doc.offsetHeight;
     },
     scroll: function() {
       window.onscroll = () => {
