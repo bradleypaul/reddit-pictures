@@ -1,8 +1,10 @@
 <template>
   <div class="PictureList">
     <div v-for="child in pictureData" :key="child.data.id">
-      <Picture :title="child.data.title"
-      :sub="child.data.subreddit_name_prefixed"
+      <Title :title="child.data.title"
+      :sub="child.data.subreddit_name_prefixed">
+      </Title>
+      <Picture
       :url="child.data.url"
       :id="child.data.id"
       :permalink="child.data.permalink">
@@ -13,11 +15,13 @@
 
 <script>
 import Picture from './Picture';
+import Title from './Title';
 
 export default {
   name: 'PictureList',
   components: {
-    Picture
+    Picture,
+    Title
   },
   props: {
   },

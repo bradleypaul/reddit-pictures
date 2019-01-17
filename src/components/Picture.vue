@@ -1,8 +1,5 @@
 <template>
-  <div class="Picture">
-    <a :href="'https://www.reddit.com/' + sub">
-    <h3 v-html="`${title} (${sub})`"></h3>
-    </a>
+  <span class="Picture">
     <br/>
       <a :href="`//www.reddit.com${permalink}`">
         <img :src="url"
@@ -10,7 +7,7 @@
         :id="id"
         class="img-fluid"/>
       </a>
-  </div>
+  </span>
 </template>
 
 <script>
