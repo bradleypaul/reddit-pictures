@@ -6,9 +6,12 @@
       <Title :title="child.data.title"
       :sub="child.data.subreddit_name_prefixed">
       </Title>
-      <Picture :url="child.data.url"
+      <Picture v-if="child.isImage" :url="child.data.url"
       :id="child.data.id">
       </Picture>
+      <Video v-else :url="child.data.url"
+      :id="child.data.id">
+      </Video>
     </div>
   </div>
 </template>
@@ -17,7 +20,8 @@
 import Picture from './Picture';
 import Video from './Video';
 import Title from './Title';
-import checkRepeats from '../services/Repeats.js'
+import Repeats from '../services/Repeats.js';
+import Matching from '../services/FileExtensionMatching.js';
 
 export default {
   name: 'PictureList',
@@ -65,8 +69,11 @@ export default {
       .then(res => res.json())
       .then(data => {
         this.pictureData.push(...data.data.children.filter(item => {
-          if(checkRepeats.checkRepeats(item.data.id)) {
-            return this.imageFileEndings.test(item.data.url);
+          if(Repeats.checkRepeats(item.data.id)) {
+            item.isImage = Matching.isImage(item.data.url);
+            console.log(item.isImage)
+            console.log(item.data.url)
+            return item.isImage || Matching.isVideo(item.data.url);
           }        
           return false;
         }));
