@@ -2,8 +2,11 @@
   <div class="PictureList">
     <div v-for="child in pictureData" :key="child.data.id">
       <Title :title="child.data.title"
-      :sub="child.data.subreddit_name_prefixed">
+      :sub="child.data.subreddit_name_prefixed"
+      :permalink="child.data.permalink"
+      :author="child.data.author">
       </Title>
+
       <Picture
       :url="child.data.url"
       :id="child.data.id"
@@ -25,7 +28,7 @@ export default {
   },
   props: {
   },
-  data: function (){
+  data: function () {
     return {
       pictureData: [],
       fileEndings: /\.(jpe?g|pi?ng|gif)$/,
@@ -60,13 +63,16 @@ export default {
       })
       .then(res => res.json())
       .then(data => {
-        this.pictureData.push(...data.data.children.filter(item => {
+        data.data.children.forEach(item => {
+          console.log(item)
           if(this.repeats.has(item.data.id)) {
-            return false;
+            return;
           }
           this.repeats.add(item.data.id);         
-          return this.fileEndings.test(item.data.url);
-        }));
+          if (this.fileEndings.test(item.data.url)) {
+            this.pictureData.push(item);
+          }
+        });
       });
     }
   },

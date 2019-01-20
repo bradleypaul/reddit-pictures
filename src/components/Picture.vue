@@ -1,12 +1,10 @@
 <template>
   <span class="Picture">
     <br/>
-      <a :href="`//www.reddit.com${permalink}`">
-        <img :src="url"
-        :alt="title" 
-        :id="id"
-        class="img-fluid"/>
-      </a>
+      <img :src="url"
+      :alt="title" 
+      :id="id"
+      class="img-fluid"/>
   </span>
 </template>
 

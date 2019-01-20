@@ -21,8 +21,8 @@ export default {
 <style>
 @import './assets/ProductSans/styles.css';
 #app {
-  font-family: 'Product Sans','Avenir', Helvetica, Arial, sans-serif;
-  background-color: #2c3e50;
+  font-family: 'Product Sans','Avenir', Helvetica, Arial, sans-serif !important;
+  /* background-color: #2c3e50; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -35,6 +35,7 @@ div.header {
   text-align: center;
   width: 100%
 }
+
 @media screen  {
   div.header{
     background-color: rgba(169,169,169,0.7);

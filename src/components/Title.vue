@@ -1,15 +1,22 @@
 <template>
   <span class="Title">
-    <a :href="'https://www.reddit.com/' + sub">
-        <h3 v-html="`${title} (${sub})`"></h3>
-    </a>
+    <h3>
+      <a :href="`${baseUrl}${permalink}`">{{title}}</a><br />
+      &nbsp;(<a :href="`${baseUrl}/${sub}`">{{sub}}</a> |
+      <a :href="`${baseUrl}/u/${author}`">u/{{author}}</a>)
+    </h3>
   </span>
 </template>
 
 <script>
 export default {
   name: 'Title',
-  props: ['title', 'sub'] 
+  props: ['title', 'sub', 'permalink', 'author'],
+  data: function () {
+    return {
+      baseUrl: '//www.reddit.com'
+    }
+  } 
 }
 </script>
 
@@ -22,6 +29,6 @@ h3 {
   padding-right: 5px;
 }
 div {
-    padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 </style>
