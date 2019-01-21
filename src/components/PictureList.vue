@@ -64,13 +64,11 @@ export default {
       .then(res => res.json())
       .then(data => {
         data.data.children.forEach(item => {
-          console.log(item)
-          if(this.repeats.has(item.data.id)) {
-            return;
-          }
-          this.repeats.add(item.data.id);         
-          if (this.fileEndings.test(item.data.url)) {
-            this.pictureData.push(item);
+          if(!this.repeats.has(item.data.id)) {  
+            this.repeats.add(item.data.id);         
+            if (this.fileEndings.test(item.data.url)) {
+              this.pictureData.push(item);
+            }
           }
         });
       });
