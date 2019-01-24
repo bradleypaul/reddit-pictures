@@ -71,8 +71,11 @@ export default {
         this.pictureData.push(...data.data.children.filter(item => {
           if(Repeats.checkRepeats(item.data.id)) {
             item.isImage = Matching.isImage(item.data.url);
-            console.log(item.isImage)
-            console.log(item.data.url)
+            if(!item.isImage) {
+              if(Matching.isGifv(item.data.url)) {
+                console.log(item.data.url);
+              }
+            }
             return item.isImage || Matching.isVideo(item.data.url);
           }        
           return false;
