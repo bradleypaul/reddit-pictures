@@ -1,9 +1,14 @@
 <template>
   <span class="Title">
+    <a :href="`${baseUrl}${permalink}`">
+      <h3 v-html="title"></h3>
+    </a>
+    <br />
     <h3>
-      <a :href="`${baseUrl}${permalink}`">{{title}}</a><br />
-      &nbsp;(<a :href="`${baseUrl}/${sub}`">{{sub}}</a> |
-      <a :href="`${baseUrl}/u/${author}`">u/{{author}}</a>)
+      (<a :href="`${baseUrl}/${sub}`">{{sub}}
+        </a> |
+      <a :href="`${baseUrl}/u/${author}`">
+      u/{{author}}</a>)
     </h3>
   </span>
 </template>

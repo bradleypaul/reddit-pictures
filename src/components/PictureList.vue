@@ -6,7 +6,7 @@
       :permalink="child.data.permalink"
       :author="child.data.author">
       </Title>
-
+      
       <Picture
       :url="child.data.url"
       :id="child.data.id"
